@@ -2,14 +2,18 @@ import React from "react";
 import  Navbar from "../src/components/Navbar";
 import ItemListContainer from "./components/ItemListContainer";
 import  'boxicons';
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import { Layout } from "./components/Layout";
 
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <ItemListContainer greeting={"HOLA"}/>
-    </div>
+    <Layout>
+      <div className="App">
+        <ItemListContainer/>
+        {/* <ItemDetailContainer/> */}
+      </div>
+    </Layout>
   );
 }
 

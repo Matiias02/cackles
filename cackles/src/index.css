@@ -9,13 +9,14 @@
 }
 
 .App{
-  max-width: 1550px;
+  /* max-width: 1550px; */
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
   box-sizing: 0 2px 6px ;
   padding: 0 15px;
   box-sizing: border-box;
+  background-color: #e7ecef;
 }
 
 code {
@@ -24,6 +25,11 @@ code {
 }
 
 /* ----HEADER---- */
+.cackles{
+  font-family: 'Bebas Neue', cursive;
+  font-size: xx-large;
+  color: #274c77;
+}
 
 header{
   width: 97%;
@@ -34,20 +40,23 @@ header{
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  position: fixed;
+  position: sticky;
   box-sizing: border-box;
-  background-color: white;
-  box-shadow: 0 5px 10px #08a05c;
+  background-color: #e7ecef;
+  box-shadow: 0 5px 10px #a3cef1;
 }
 
 a{
-  color: black;
   text-decoration: none;
   text-transform: uppercase;
+  color: #274c77;
+  font-family: 'Bebas Neue', cursive;
+  align-content: center;
+  font-size: 18px;
 }
 
 a:hover{
-  color: #08a05c;
+  color: #a3cef1;
 }
 
 
@@ -59,6 +68,7 @@ header ul{
   display: flex;
   padding: 0;
   margin: 0;
+  align-items: center;
 }
 
 header ul li{
@@ -66,7 +76,7 @@ header ul li{
 }
 
 header ul li a{
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 header .cart{
@@ -80,13 +90,14 @@ header .cart box-icon{
   cursor: pointer;
   width: 45px;
   height: 45px;
+  align-items: center;
 }
-header .cart  .item_total{
+header .cart  .item__total{
   position: absolute;
   top: -1rem;
   right: -1.5rem;
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -97,6 +108,40 @@ header .cart  .item_total{
   font-weight: 700;
   background-color: red;
 }
+
+
+.container{
+  margin-right: 0;
+}
+/* ModalDetail */
+.modal{
+}
+.imgModal{
+  height: 18rem;
+}
+.prodDetail{
+  /* height: 50px; */
+}
+
+.card{
+  background-color: #e7ecef;
+  padding: 0px;
+  margin-top: 70px;
+  margin-left: 35px;
+  box-shadow: 0 5px 10px #a3cef1;
+  border: none;
+}
+
+.main{
+  background-color: #e7ecef;
+}
+
+body{
+  background-color: #e7ecef
+}
+
+
+
 
 /* ----MEDIAQUERYS---- */
 
