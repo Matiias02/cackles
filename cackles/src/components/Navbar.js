@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import CartWidget from './CartWidget';
 import  Kike  from '../assets/img/dunk/descarga-removebg-preview (1).png'
 import { Link } from 'react-router-dom'
@@ -11,6 +11,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 const navbar = ({greeting}) => {
+    
     return (
         <div>
         <p>{greeting}</p>
@@ -28,9 +29,7 @@ const navbar = ({greeting}) => {
                             <li>
                                 <Link to='/'>Inicio</Link>
                             </li>
-                            <div className='cart'>
-                                <CartWidget></CartWidget>
-                            </div>
+                            
                             
                             <li>
                                 <Link to='/category/jordan1'>jordan1</Link>
@@ -44,7 +43,11 @@ const navbar = ({greeting}) => {
                             <li>
                                 <Link to='/item/:item'>Item</Link>
                             </li>
-                            
+                            <div className='cart'>
+                                <Link to='/item/:item' >
+                                    <CartWidget></CartWidget>
+                                </Link>
+                            </div>
                             
                             {/* 
                                 <Link to='/'>Productos</Link>

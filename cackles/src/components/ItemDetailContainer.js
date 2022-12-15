@@ -3,22 +3,28 @@ import ItemDetail from "./ItemDetail";
 // IMAGENES
 
 // MOCK
-import { productos } from "../mocks/item.mock";
+import  { productos }  from "../mocks/item.mock";
 
-const ItemDetailContainer = () => {
-    const [item, setItem] = useState(null);
+const ItemDetailContainer = ({producto}) => {
+    
+    const [item, setItem] = useState([]);
+    const  [hasProduct, setHasProduct] = useState(false);
 
     useEffect(() => {
-        new Promise((resolve) => setTimeout(() => resolve(productos[0]), 2000)).then(
-            (data) => setItem(data)
-        );
-    }, []);
+        new Promise((resolve) => 
+            setTimeout(() => resolve(productos[producto.id - 1]),2000)
+        ).then((data)=> setItem(data)).then((data) => setHasProduct(!data));
+        },[producto]);
 
-    if (!item) {
-        return <p>Loading...</p>;
-    }
-
-    return <ItemDetail item={item} />;
+    return (
+        <>
+            <div className="container py-5">
+                <div className="row py-5">
+                    {!hasProduct ? <p>Loading...</p> : <div><ItemDetail item={item} /></div>}
+                </div>
+            </div>
+        </>
+    )
 };
 
 export default ItemDetailContainer;

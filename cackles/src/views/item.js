@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { Layout } from '../components/Layout';
 import ItemDetailContainer from '../components/ItemDetailContainer';
+import { useParams } from 'react-router-dom';
 
-const ItemView = () => (
+
+const ItemView = () => {
+    const producto = useParams();
+
+    return(
     <Layout>
-        <ItemDetailContainer/>
-        <h1>Vista del item</h1>
+        <ItemDetailContainer producto={producto}/>
     </Layout>
-)   
+    )
+}  
 export default ItemView;

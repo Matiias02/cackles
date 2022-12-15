@@ -20,8 +20,8 @@
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', 
+    monospace;*/
 }
 
 /* ----HEADER---- */
@@ -90,12 +90,15 @@ header .cart box-icon{
   cursor: pointer;
   width: 45px;
   height: 45px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
+
 header .cart  .item__total{
   position: absolute;
-  top: -1rem;
-  right: -1.5rem;
+  top: -0.2rem;
+  right: 0.01rem;
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
@@ -109,10 +112,10 @@ header .cart  .item__total{
   background-color: red;
 }
 
-
+/* 
 .container{
   margin-right: 0;
-}
+} */
 /* ModalDetail */
 .modal{
 }
@@ -137,7 +140,11 @@ header .cart  .item__total{
 }
 
 body{
-  background-color: #e7ecef
+  background-color: #e7ecef;
+}
+
+.text-white{
+  color: black;
 }
 
 

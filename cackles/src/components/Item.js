@@ -2,35 +2,19 @@ import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Item = ({ product }) => {
+    const navigate = useNavigate();
     
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true)
+    function handleNavigate () {
+        navigate (`/item/${product.id}`)
+    }
+    
 
     return (
             <>
-                <Modal show={show} onHide={handleClose} className='modal'>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{product.name}</Modal.Title>
-                    </Modal.Header>
-                    <div>
-                        <Modal.Body className='prodDetail'>{product.detail}</Modal.Body>
-                        <img src={product.img} className='imgModal'></img>
-                    </div>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Cerrar
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                            Añadir al carrito
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={product.img}/>
                         <Card.Body>
@@ -38,11 +22,16 @@ const Item = ({ product }) => {
                             <Card.Text>
                                 {product.description}
                             </Card.Text>
-                        <Button variant="primary" onClick={handleShow}>{product.price}</Button>
+                        <div>
+                            <Link to={`/item/${product.id}`}>
+                                <Button variant="primary">{product.price}</Button>
+                            </Link>
+                        </div>
                         </Card.Body>
                 </Card>
             </>
         );
+    
     };
 
     export default Item;
