@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CartWidget from './CartWidget';
 import  Kike  from '../assets/img/dunk/descarga-removebg-preview (1).png'
 import { Link } from 'react-router-dom'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import {CartContext} from '../contexts/cartContext'
 
 
 
 
-const navbar = ({greeting}) => {
+const Navbar = ({greeting}) => {
+    const value = useContext(CartContext);
+    const [menu, setMenu] = value.menu;
+
+    const toogleMenu = () => {
+        setMenu(!menu)
+    }
     
     return (
         <div>
@@ -43,8 +46,8 @@ const navbar = ({greeting}) => {
                             <li>
                                 <Link to='/item/:item'>Item</Link>
                             </li>
-                            <div className='cart'>
-                                <Link to='/item/:item' >
+                            <div className='cart' onClick={toogleMenu}>
+                                <Link to='/cart' >
                                     <CartWidget></CartWidget>
                                 </Link>
                             </div>
@@ -61,6 +64,6 @@ const navbar = ({greeting}) => {
     )
 }
 
-export default navbar
+export default Navbar
 
 

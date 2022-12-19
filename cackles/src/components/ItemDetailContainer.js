@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
+import { Loading } from "./loading";
 // IMAGENES
 
 // MOCK
@@ -20,7 +21,7 @@ const ItemDetailContainer = ({producto}) => {
         <>
             <div className="container py-5">
                 <div className="row py-5">
-                    {!hasProduct ? <p>Loading...</p> : <div><ItemDetail item={item} /></div>}
+                    {!hasProduct ? <Loading/> : <div><ItemDetail item={item} /></div>}
                 </div>
             </div>
         </>
