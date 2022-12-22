@@ -1,19 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import CartWidget from './CartWidget';
 import  Kike  from '../assets/img/dunk/descarga-removebg-preview (1).png'
 import { Link } from 'react-router-dom'
-import {CartContext} from '../contexts/cartContext'
 
 
 
 
 const Navbar = ({greeting}) => {
-    const value = useContext(CartContext);
-    const [menu, setMenu] = value.menu;
-
-    const toogleMenu = () => {
-        setMenu(!menu)
-    }
     
     return (
         <div>
@@ -43,10 +36,7 @@ const Navbar = ({greeting}) => {
                             <li>
                                 <Link to='/category/dunk'>dunk</Link>
                             </li>
-                            <li>
-                                <Link to='/item/:item'>Item</Link>
-                            </li>
-                            <div className='cart' onClick={toogleMenu}>
+                            <div className='cart'>
                                 <Link to='/cart' >
                                     <CartWidget></CartWidget>
                                 </Link>

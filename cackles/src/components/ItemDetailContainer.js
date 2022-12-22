@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { Loading } from "./loading";
-// IMAGENES
+import { Loading } from "./Loading";
 
-// MOCK
-import  { productos }  from "../mocks/item.mock";
+
+import { useGetItem } from "../hooks/useGetItem";
+
 
 const ItemDetailContainer = ({producto}) => {
     
-    const [item, setItem] = useState([]);
-    const  [hasProduct, setHasProduct] = useState(false);
-
-    useEffect(() => {
-        new Promise((resolve) => 
-            setTimeout(() => resolve(productos[producto.id - 1]),2000)
-        ).then((data)=> setItem(data)).then((data) => setHasProduct(!data));
-        },[producto]);
+    const item = useGetItem()
+    
+    if (!item) {
+        return <Loading/>
+    }
 
     return (
         <>
             <div className="container py-5">
                 <div className="row py-5">
-                    {!hasProduct ? <Loading/> : <div><ItemDetail item={item} /></div>}
+                    <div><ItemDetail item={item} /></div>
                 </div>
             </div>
         </>

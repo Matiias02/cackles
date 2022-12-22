@@ -1,7 +1,9 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../contexts/cartContext';
+import { useGetItemImg } from '../hooks/useGetItemImage';
 import { ItemCount } from './ItemCount';
+
 
 
 
@@ -12,6 +14,7 @@ const ItemDetail = ({ item }) => {
     const [count, setCount] = useState(1);
     const [currentStock, setCurrentStock] = useState(item.stock);
     const maxQuantity = currentStock;
+    const img = useGetItemImg(item.img)
 
     function handleCount(type) {
         if (type === "plus" && count < maxQuantity) setCount(count + 1);
@@ -34,7 +37,7 @@ const ItemDetail = ({ item }) => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-6'>
-                        <img src={item.img} alt='vistaDelI'
+                        <img src={img} alt='vistaDelI'
                             height='400px' width='525px'>
                         </img>
                     </div>
@@ -53,9 +56,9 @@ const ItemDetail = ({ item }) => {
                             <button className='btn btn-outline-dark'>10us</button>
                         </div>
                         
-                        <h4 className="text-black-50">
+                        <h5 className="text-black-50">
                             En stock: {item.stock}
-                        </h4>
+                        </h5>
                         <div className="flex flex-col flex-1 items-center">
                             {/* Count */}
                             {currentStock > 0 ? (
@@ -64,10 +67,10 @@ const ItemDetail = ({ item }) => {
                                 <span className="text-red-500 mt-10">Sin stock</span>
                             )}
                             
-                            <div className="w-full flex flex-col align-items-center col-md-9">
+                            <div className="w-full flex flex-col align-items-center col-md-9 row">
                                 <button
                                     onClick={handleAdd}
-                                    className="btn btn-secondary"
+                                    className="btn btn-secondary mb-1 mt-2"
                                     disabled={currentStock === 0}
                                 >
                                     Agregar al carrito
